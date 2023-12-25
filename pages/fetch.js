@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import {useEffect,useState}from 'react'
-import {db2} from './firebase'
+import {db2} from '../firebase'
 import showCoolAlert from './coolAlert';
 import {
   collection,
