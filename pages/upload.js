@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
-import {storage} from "./firebase"
+import {storage} from "../firebase"
 import { ref,getStorage,  deleteObject , uploadBytes, listAll, getDownloadURL } from "firebase/storage";
 import {v4} from "uuid"
 import React from 'react'
 import Link from 'next/link'
-import { db2 } from "./firebase";
+import { db2 } from "../firebase";
+
 import showCoolAlert from './coolAlert';
 import {
   collection,
