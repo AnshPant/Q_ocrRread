@@ -2,7 +2,8 @@ import React from 'react'
 import Link from 'next/link'
 import {useEffect,useState}from 'react'
 import {db2} from '../firebase'
-
+import 'bootstrap/dist/css/bootstrap.css'
+import '../app/globals.css'
 import {
   collection,
   getDocs,

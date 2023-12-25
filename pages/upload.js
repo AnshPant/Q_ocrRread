@@ -5,8 +5,9 @@ import {v4} from "uuid"
 import React from 'react'
 import Link from 'next/link'
 import { db2 } from "../firebase";
-
+import 'bootstrap/dist/css/bootstrap.css'
 import showCoolAlert from './coolAlert';
+import '../app/globals.css'
 import {
   collection,
   

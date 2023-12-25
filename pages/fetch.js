@@ -3,6 +3,8 @@ import Link from 'next/link'
 import {useEffect,useState}from 'react'
 import {db2} from '../firebase'
 import showCoolAlert from './coolAlert';
+import 'bootstrap/dist/css/bootstrap.css'
+import '../app/globals.css'
 import {
   collection,
   getDocs,
@@ -82,7 +84,7 @@ function viewDB() {
     
     <div  >
       <label   htmlFor="cardType">Card Type:</label>
-      <input value={cardType} onChange={(e) => setcardType(e.target.value)} type="text" id="name" className="" placeholder="" required />
+      <input value={cardType} onChange={(e) => setcardType(e.target.value)} type="text" id="name" className="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" required />
     </div>
 
     <div  >
