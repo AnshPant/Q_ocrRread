@@ -163,7 +163,7 @@ function upload(){
         </button></Link>
         <Link href="fetch">
         <button  >
-          Get sorted data
+          Fetch and Update data
         </button></Link>
           </div>
         </section>
