@@ -73,57 +73,59 @@ function viewDB() {
       }
 
   return (
-    <div>
-        <p>Enter Identification_Number and click fetch result</p>
+    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <div max-w-md mx-auto p-4>
+        <p className="mb-4">Enter Identification_Number and click fetch result</p>
 
-        <p>You may edit the details and then utilise update button. It updates using identificationNumber as standand.</p>
+        <p className="mb-4">You may edit the details and then utilise update button. It updates using identificationNumber as standand.</p>
 
       <div className="form-container">
   
   
     
-    <div  >
+    <div  className="mb-4" >
       <label   htmlFor="cardType">Card Type:</label>
-      <input value={cardType} onChange={(e) => setcardType(e.target.value)} type="text" id="name" className="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" required />
+      <input value={cardType} onChange={(e) => setcardType(e.target.value)} type="text" id="name" className="block text-sm font-medium text-gray-700"  placeholder="" required />
     </div>
 
-    <div  >
+    <div className="mb-4" >
       <label   htmlFor="name">Name:</label>
-      <input value={name} onChange={(e) => setName(e.target.value)} type="text" id="name" className="" placeholder="" required />
+      <input value={name} onChange={(e) => setName(e.target.value)} type="text" id="name" className="block text-sm font-medium text-gray-700" placeholder="" required />
     </div>
 
-    <div  >
+    <div className="mb-4"  >
       <label   htmlFor="lastName">Last Name:</label>
-      <input value={Lname} onChange={(e) => setLName(e.target.value)} type="text" id="name" className="" placeholder="" required />
+      <input value={Lname} onChange={(e) => setLName(e.target.value)} type="text" id="name" className="block text-sm font-medium text-gray-700" placeholder="" required />
     </div>
 
-    <div  >
+    <div className="mb-4" >
       <label   htmlFor="identificationNumber">Identification Number:</label>
-      <input value={Id} onChange={(e) => setId(e.target.value)} type="text" id="name" className="" placeholder="" required />
+      <input value={Id} onChange={(e) => setId(e.target.value)} type="text" id="name" className="block text-sm font-medium text-gray-700" placeholder="" required />
     </div>
 
-    <div  >
+    <div className="mb-4" >
       <label   htmlFor="dateOfIssue">Date of Issue:</label>
-      <input value={issue} onChange={(e) => setIssue(e.target.value)} type="text" id="name" className="" placeholder="" required />
+      <input value={issue} onChange={(e) => setIssue(e.target.value)} type="text" id="name" className="block text-sm font-medium text-gray-700" placeholder="" required />
     </div>
 
-    <div  >
+    <div  className="mb-4">
       <label   htmlFor="dateOfExpiry">Date Of Expiry:</label>
-      <input value={expiry} onChange={(e) => setExpiry(e.target.value)} type="text" id="name" className="" placeholder="" required />
+      <input value={expiry} onChange={(e) => setExpiry(e.target.value)} type="text" id="name" className="block text-sm font-medium text-gray-700" placeholder="" required />
     </div>
 
-    <div  >
+    <div className="mb-4" >
       <label   htmlFor="dateOfBirth">Date of Birth:</label>
-      <input value={DOB} onChange={(e) => setDOB(e.target.value)} type="text" id="name" className="" placeholder="" required />
+      <input value={DOB} onChange={(e) => setDOB(e.target.value)} type="text" id="name" className="block text-sm font-medium text-gray-700" placeholder="" required />
     </div>
  
-    <button onClick = {fetchh} >Fetch Data</button>
-    <button onClick = {updatee} >Update Data</button>
-    <Link href="upload"><button  > Go Back</button></Link>
-  
+    <button onClick = {fetchh} className="bg-white hover:bg-blue-700 text-black font-bold py-2 px-4 rounded-full">Fetch Data</button>
+    <button onClick = {updatee} className="bg-white hover:bg-blue-700 text-black font-bold py-2 px-4 rounded-full" >Update Data</button>
+    <Link href="upload" ><button className="bg-white hover:bg-blue-700 text-black font-bold py-2 px-4 rounded-full" > Go Back</button></Link>
+     
 </div>
        
     </div>
+    </main>
   )
 }
 

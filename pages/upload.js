@@ -5,6 +5,7 @@ import {v4} from "uuid"
 import React from 'react'
 import Link from 'next/link'
 import { db2 } from "../firebase";
+import Image from "next/image"
 import 'bootstrap/dist/css/bootstrap.css'
 import showCoolAlert from './coolAlert';
 import '../app/globals.css'
@@ -13,11 +14,15 @@ import {
   
   addDoc,
 } from "firebase/firestore";
+import { stringify } from "querystring";
 
 
 function upload(){
     const [url, setUrl] = useState('');
     const [name, setName] = useState('');
+    const [isButtonDisabled, setButtonDisabled] = useState(false);
+  const [isLoading, setLoading] = useState(false);
+    const [DD, setDD] = useState('');
     const [flag, setF] = useState('');
     const [imgUpload  , setImage] = useState(null);
     const [imgGet  , setGet] = useState([]);
@@ -65,7 +70,19 @@ function upload(){
       showCoolAlert("Succesfully Pushed :-) ");
   }
  
-   
+  const handleClick = () => {
+    // Show loading state
+    setLoading(true);
+
+    // Disable the button
+    setButtonDisabled(true);
+
+    // Enable the button and hide loading state after 10 seconds
+    setTimeout(() => {
+      setButtonDisabled(false);
+      setLoading(false);
+    }, 10000); // 10 seconds in milliseconds
+  };
   const b = async () => {
     getU();
     setUrl(imgGet[0]);
@@ -111,9 +128,10 @@ function upload(){
   };
 
   const chainSaw = async () => {
-   const ele = await b();
+    handleClick();
+    const ele = await b();
    setDisplayedData(ele);
-
+   setDD(stringify(ele));
    console.log("element is: ",ele);
   }
 
@@ -121,14 +139,24 @@ function upload(){
 
     return(
       <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        <p>First Browse the Image and then Click on Upload Button</p>
-        
+        <p className="mb-3 text-lg text-white md:text-xl dark:text-gray-400">First Browse the Image and then Click on Upload Button</p>
+        <figure class="max-w-lg">
+          {/* <p>{url}</p> */}
+  <Image class="h-auto max-w-full rounded-lg" src={url} alt="image description" width={600}
+    height={400} />
+  
+</figure>
         <section>
-            <input type="file" onChange={(event)=>{setImage(event.target.files[0])}} />
-            <button onClick = {a} >Upload image</button>
+
+{/* <input  type="file"> */}
+
+<label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload file</label>
+            <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file" onChange={(event)=>{setImage(event.target.files[0])}} />
+            <br></br>
+            <button className="bg-white hover:bg-blue-700 text-black font-bold py-2 px-4 rounded-full" onClick = {a} >Upload image</button>
             {/* <button onClick = {pop} >alert</button> */}
-            <p>Wait for a while and then click Extract Details button. Image processing may required few minutes.</p>
-            <button onClick = {chainSaw} > Extract Details</button>
+            <p className="mb-3 text-lg text-white md:text-xl dark:text-gray-400">Wait for a while and then click Extract Details button. Image processing may required few minutes.</p>
+            <button className="bg-white hover:bg-blue-700 text-black font-bold py-2 px-4 rounded-full" onClick = {chainSaw}  > Extract Details</button>
             
           <div>
             {
@@ -141,30 +169,32 @@ function upload(){
             {
               url && !displayedData && (
                 <div>
-                  <p>Extraction almost done. Try again in 10 Seconds</p>
+                  <p className="mb-3 text-lg text-white md:text-xl dark:text-gray-400">Fetching Results. Wait few more seconds.</p>
                   </div>
               )
             }
           {displayedData && (
         <div>
-          <p>Card Type: {displayedData.CardType}</p>
-          <p>Name: {displayedData.Name}</p>
-          <p>Last Name: {displayedData.Last_Name}</p>
-          <p>Identification Number: {displayedData.Identification_Number}</p>
-          <p>Date of Issue: {displayedData.Date_of_issue}</p>
-          <p>Date Of Expiry: {displayedData.Date_of_expiry}</p>
-          <p>Date of Birth: {displayedData.Date_of_birth}</p>
-          <p>Click on upload button to store the details in database.</p>
-          <button onClick = {sendd} >Upload Data</button>
+          
+          <p className="mb-3 text-lg text-white md:text-xl dark:text-gray-400">JSON data{DD}</p>
+          <p className="mb-3 text-lg text-white md:text-xl dark:text-gray-400">Card Type: {displayedData.CardType}</p>
+          <p className="mb-3 text-lg text-white md:text-xl dark:text-gray-400">Name: {displayedData.Name}</p>
+          <p className="mb-3 text-lg text-white md:text-xl dark:text-gray-400">Last Name: {displayedData.Last_Name}</p>
+          <p className="mb-3 text-lg text-white md:text-xl dark:text-gray-400">Identification Number: {displayedData.Identification_Number}</p>
+          <p className="mb-3 text-lg text-white md:text-xl dark:text-gray-400">Date of Issue: {displayedData.Date_of_issue}</p>
+          <p className="mb-3 text-lg text-white md:text-xl dark:text-gray-400">Date Of Expiry: {displayedData.Date_of_expiry}</p>
+          <p className="mb-3 text-lg text-white md:text-xl dark:text-gray-400">Date of Birth: {displayedData.Date_of_birth}</p>
+          <p className="mb-3 text-lg text-white md:text-xl dark:text-gray-400">Click on upload button to store the details in database.</p>
+          <button className="bg-white hover:bg-blue-700 text-black font-bold py-2 px-4 rounded-full" onClick = {sendd} >Upload Data</button>
         </div>
       )}
-<p>Below are some other functionalities.</p>
+<p className="mb-3 text-lg text-white md:text-xl dark:text-gray-400">Below are some other functionalities.</p>
 <Link href="database">
-          <button  >
+          <button className="bg-white hover:bg-blue-700 text-black font-bold py-2 px-4 rounded-full" >
           Get sorted data
         </button></Link>
         <Link href="fetch">
-        <button  >
+        <button  className="bg-white hover:bg-blue-700 text-black font-bold py-2 px-4 rounded-full">
           Fetch and Update data
         </button></Link>
           </div>
