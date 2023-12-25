@@ -1,7 +1,7 @@
 // pages/api/upload.js
 import { NextApiRequest, NextApiResponse } from 'next';
 
-async function quickstart( url) {
+async function quickstart( url: string) {
 
   console.log("we have cathces",url);
   try{ const vision = require('@google-cloud/vision');
@@ -39,10 +39,7 @@ async function quickstart( url) {
 
 let anss = []
 var num=0
-detections.forEach((text) => {
-   anss.push(num + " gap " + text.description);
-   num = num + 1;
- });
+
 const jsonObi = {
    CardType: detections[5].description +" "+detections[6].description ,
    Name:   detections[31].description +" "+detections[32].description ,

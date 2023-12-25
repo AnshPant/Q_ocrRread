@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import {storage} from "./firebase"
 import { ref,getStorage,  deleteObject , uploadBytes, listAll, getDownloadURL } from "firebase/storage";
@@ -9,11 +8,8 @@ import { db2 } from "./firebase";
 import showCoolAlert from './coolAlert';
 import {
   collection,
-  getDocs,
+  
   addDoc,
-  updateDoc,
-  deleteDoc,
-  doc,
 } from "firebase/firestore";
 
 
