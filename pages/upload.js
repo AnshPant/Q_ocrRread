@@ -92,16 +92,16 @@ function upload(){
       console.log("nohoo",displayedData)
       if(data !==null){
 
-        // const storage = getStorage();
+        const storage = getStorage();
   
-        // const desertRef = ref(storage, url);
+        const desertRef = ref(storage, url);
         
         
-        // deleteObject(desertRef).then(() => {
-        //   alert("Note: We have deleted the image from CLOUD BUCKET :> For safety resons.");
-        // }).catch((error) => {
+        deleteObject(desertRef).then(() => {
+          alert("Note: We have deleted the image from CLOUD BUCKET :> For safety resons.");
+        }).catch((error) => {
           
-        // });
+        });
 
       }
       return data ;
