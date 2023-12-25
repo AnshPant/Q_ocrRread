@@ -9,12 +9,12 @@
 This React application uses Tesseract.js for OCR (Optical Character Recognition) of Thai ID cards. It allows users to upload an image of a Thai ID card, extract the relevant information, and save it to a database. The app also includes a filter feature to search for specific OCR records.
 
 Website Link:
-
+(If website dont work properly please see the demo link provided below)
 #https://q-ocr-rread-fsjw.vercel.app/
 
 # Demo Link Video
  Please see the demo link:
- 
+ https://www.youtube.com/watch?v=WLx06J6nz78
 
 ## API used
 
