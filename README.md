@@ -55,7 +55,7 @@ In this you will be seeing all the data already in databse. You can manualy filt
 You can also view all the data records sorted by Identification Number.
 
 
-# OCR API with Express and MongoDB
+# OCR API
 
 Proper Server Side rendering for the google Vision API has been done. Stored as TypeScript file in the API folder.
 (This is NEXT.js format for creating server side API)
@@ -65,6 +65,7 @@ Proper Server Side rendering for the google Vision API has been done. Stored as 
 - Node.js and npm installed
 
 
+
 ## Database Setup
 
 No need to setup data.
@@ -72,7 +73,7 @@ Its always on :)
 
 ## API Routes
 
-The API provides the following routes:
+
 
 FileSystem based routing has been implemented in whole project.
 
