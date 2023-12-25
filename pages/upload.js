@@ -122,10 +122,14 @@ function upload(){
 
 
     return(
+      <main className="flex min-h-screen flex-col items-center justify-between p-24">
+        <p>First Browse the Image and then Click on Upload Button</p>
+        
         <section>
             <input type="file" onChange={(event)=>{setImage(event.target.files[0])}} />
             <button onClick = {a} >Upload image</button>
             {/* <button onClick = {pop} >alert</button> */}
+            <p>Wait for a while and then click Extract Details button. Image processing may required few minutes.</p>
             <button onClick = {chainSaw} > Extract Details</button>
             
           <div>
@@ -156,7 +160,7 @@ function upload(){
           <button onClick = {sendd} >Upload Data</button>
         </div>
       )}
-
+<p>Below are some other functionalities.</p>
 <Link href="database">
           <button  >
           Get sorted data
@@ -167,6 +171,7 @@ function upload(){
         </button></Link>
           </div>
         </section>
+        </main>
     )
 }
 
